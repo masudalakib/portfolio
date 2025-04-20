@@ -1,0 +1,1444 @@
+/* Custom styles for Portfolio Website */
+
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Title light effect animation */
+@keyframes title-glow {
+    0% {
+        color: #4d13d1;
+        text-shadow: 0 0 10px #4d13d1, 0 0 20px #4d13d1;
+    }
+    25% {
+        color: #7209b7;
+        text-shadow: 0 0 10px #7209b7, 0 0 20px #7209b7;
+    }
+    50% {
+        color: #f72585;
+        text-shadow: 0 0 10px #f72585, 0 0 20px #f72585;
+    }
+    75% {
+        color: #4cc9f0;
+        text-shadow: 0 0 10px #4cc9f0, 0 0 20px #4cc9f0;
+    }
+    100% {
+        color: #4d13d1;
+        text-shadow: 0 0 10px #4d13d1, 0 0 20px #4d13d1;
+    }
+}
+
+/* Base Styles - Colorful Scheme */
+:root {
+    --primary-color: #4d13d1;
+    --primary-dark: #3a0ca3;
+    --primary-light: #7209b7;
+    --secondary-color: #f72585;
+    --secondary-dark: #dc136c;
+    --secondary-light: #ff7096;
+    --accent-color: #4cc9f0;
+    --accent-dark: #00b4d8;
+    --accent-light: #80ffdb;
+    --dark-bg: #0b0a14;
+    --dark-card: #1e1b30;
+    --dark-text: #f8fafc;
+    --light-bg: #f9fafb;
+    --light-text: #111827;
+    --light-card: #ffffff;
+    --gradient-1: linear-gradient(to right, #4361ee, #3a0ca3);
+    --gradient-2: linear-gradient(to right, #7209b7, #f72585);
+    --gradient-3: linear-gradient(to right, #4cc9f0, #80ffdb);
+    --gradient-4: linear-gradient(135deg, #4d13d1, #f72585, #4cc9f0);
+    --transition: all 0.3s ease;
+    --card-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --card-shadow-hover: 0 15px 25px rgba(0, 0, 0, 0.15);
+    --perspective: 1000px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+    perspective: var(--perspective);
+    color: var(--light-text);
+    background-color: var(--light-bg);
+}
+
+/* Dark mode improvements */
+.dark {
+    --dark-bg: #0f172a;
+    --dark-card: #1e293b;
+    color-scheme: dark;
+}
+
+.dark body {
+    background-color: var(--dark-bg);
+    color: var(--dark-text) !important;
+}
+
+.dark p {
+    color: #e2e8f0 !important;
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    color: #f8fafc !important;
+}
+
+.dark .text-gray-700, 
+.dark .text-gray-800,
+.dark .text-gray-900 {
+    color: #e2e8f0 !important;
+}
+
+.dark .text-gray-600 {
+    color: #cbd5e1 !important;
+}
+
+.dark .text-gray-500,
+.dark .text-gray-400 {
+    color: #94a3b8 !important;
+}
+
+.dark .bg-white {
+    background-color: var(--dark-card) !important;
+}
+
+.dark .border-gray-200 {
+    border-color: #334155 !important;
+}
+
+/* Ensure text is visible in dark mode within cards */
+.dark .skill-card,
+.dark .project-card .content,
+.dark .about-card {
+    color: #f8fafc;
+}
+
+/* Fix text in hero section for dark mode */
+.dark .hero-heading {
+    color: #f8fafc !important;
+}
+
+.dark .hero-heading span {
+    background: linear-gradient(135deg, #818cf8, #a78bfa, #f472b6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Hover effects for dark mode */
+.dark .hover\:bg-gray-700:hover {
+    background-color: #334155 !important;
+}
+
+/* Project card links in dark mode */
+.dark .text-indigo-600,
+.dark .text-blue-600 {
+    color: #a5b4fc !important; /* Indigo-300 */
+}
+
+.dark .text-indigo-400,
+.dark .text-blue-400 {
+    color: #818cf8 !important; /* Indigo-400 */
+}
+
+/* 3D Utility Classes */
+.tilt-effect {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.tilt-effect:hover {
+    transform: rotateX(5deg) rotateY(5deg);
+}
+
+.float-effect {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Neon Glow Effect */
+.neon-glow {
+    box-shadow: 0 0 5px var(--primary-color),
+                0 0 20px var(--primary-color);
+    transition: box-shadow 0.3s ease;
+}
+
+.neon-glow:hover {
+    box-shadow: 0 0 10px var(--primary-color),
+                0 0 30px var(--primary-color),
+                0 0 50px var(--primary-color);
+}
+
+.neon-text {
+    text-shadow: 0 0 5px var(--primary-light),
+                0 0 15px var(--primary-light);
+}
+
+/* Name glow animation for Masud Al Akib */
+.name-glow {
+    position: relative;
+    display: inline-block;
+    animation: pulse-glow 3s ease-in-out infinite;
+    text-shadow: 0 0 10px rgba(104, 58, 252, 0.7),
+                 0 0 20px rgba(104, 58, 252, 0.5),
+                 0 0 30px rgba(104, 58, 252, 0.3);
+}
+
+.name-glow::after {
+    content: '';
+    position: absolute;
+    top: -15%;
+    left: -10%;
+    width: 120%;
+    height: 130%;
+    background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.2), 
+                transparent);
+    animation: name-shine 5s linear infinite;
+    transform: skewX(-20deg);
+    z-index: -1;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(104, 58, 252, 0.7),
+                     0 0 20px rgba(104, 58, 252, 0.5),
+                     0 0 30px rgba(104, 58, 252, 0.3);
+    }
+    50% {
+        text-shadow: 0 0 15px rgba(236, 72, 153, 0.7),
+                     0 0 25px rgba(236, 72, 153, 0.5),
+                     0 0 35px rgba(236, 72, 153, 0.3);
+    }
+}
+
+@keyframes name-shine {
+    0% {
+        left: -150%;
+    }
+    100% {
+        left: 150%;
+    }
+}
+
+/* Colorful gradients */
+.gradient-border {
+    position: relative;
+    background-clip: padding-box;
+    border: solid 5px transparent;
+    border-radius: 12px;
+}
+
+.gradient-border:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -5px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+}
+
+/* Dark mode enhancement for gradient borders */
+.dark .gradient-border:before {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed, #ec4899);
+    opacity: 0.8;
+}
+
+/* Utility Classes */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    color: var(--primary-color);
+    transform-style: preserve-3d;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* Dark mode section titles */
+.dark .section-title {
+    background: var(--gradient-3);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.dark .section-title::after {
+    background: var(--gradient-3);
+}
+
+/* Remove complex dark mode overrides for section titles */
+.dark #about .section-title,
+.dark #projects .section-title, 
+.dark #contact .section-title,
+.dark #resume .section-title,
+.dark #skills .section-title {
+    background: var(--gradient-3);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Fix for section title in dark mode */
+.dark h2.section-title {
+    background: var(--gradient-3);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Fix section backgrounds in dark mode */
+.dark #about, 
+.dark #projects,
+.dark #contact {
+    background-color: var(--dark-bg) !important;
+}
+
+/* Fix text in specific sections for dark mode */
+.dark #about p,
+.dark #projects p,
+.dark #contact p,
+.dark #about h3,
+.dark #projects h3,
+.dark #contact h3,
+.dark #about h4,
+.dark #projects h4,
+.dark #contact h4 {
+    color: #e2e8f0 !important;
+}
+
+/* Fix section headers in dark mode */
+.dark .text-blue-600 {
+    color: #a5b4fc !important;
+}
+
+/* Ensure card headings are visible */
+.dark .about-card h3,
+.dark .project-card h3 {
+    color: #a5b4fc !important;
+}
+
+/* Fix section subtitle colors */
+.dark .text-xl, 
+.dark .text-2xl {
+    color: #f1f5f9 !important;
+}
+
+/* Force backgrounds for specific cards */
+.dark .bg-white,
+.dark .bg-gradient-to-br {
+    background-color: var(--dark-card) !important;
+}
+
+/* 3D Hero Section */
+#hero {
+    position: relative;
+    overflow: hidden;
+}
+
+#hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(124, 58, 237, 0.05) 50%, rgba(236, 72, 153, 0.05) 100%);
+    z-index: -1;
+}
+
+.hero-content {
+    transform-style: preserve-3d;
+}
+
+.hero-heading {
+    transform: translateZ(20px);
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-image-container {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+    perspective: 1200px;
+    margin: 1rem;
+    z-index: 10;
+}
+
+.hero-image-container:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+/* Colorful profile picture container with hexagon shape */
+.hero-image-container .rounded-full {
+    position: relative;
+    overflow: hidden;
+    /* Hexagon-like shape */
+    border-radius: 30% 70% 50% 50% / 30% 30% 70% 70%;
+    box-shadow: 
+        0 10px 25px rgba(0, 0, 0, 0.2),
+        0 0 0 10px rgba(255, 255, 255, 0.1);
+    padding: 0;
+    transition: all 0.5s ease;
+    border: none;
+    transform: rotate(-5deg);
+}
+
+/* Add colorful border */
+.hero-image-container .rounded-full::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: var(--gradient-4);
+    z-index: -1;
+    border-radius: 33% 67% 53% 47% / 33% 33% 67% 67%;
+    animation: spin-slow 10s linear infinite;
+}
+
+.hero-image-container .rounded-full::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--gradient-3);
+    z-index: -2;
+    border-radius: 37% 63% 57% 43% / 37% 37% 63% 63%;
+    animation: spin-slow 15s linear infinite reverse;
+    filter: blur(10px);
+    opacity: 0.7;
+}
+
+@keyframes spin-slow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.hero-image-container:hover .rounded-full {
+    border-radius: 40% 60% 40% 60% / 40% 50% 50% 40%;
+    transform: rotate(5deg);
+}
+
+/* Animated image effect */
+.hero-image-container img {
+    transition: all 0.7s ease;
+    transform: scale(1.05);
+    filter: contrast(1.1) saturate(1.2);
+}
+
+.hero-image-container:hover img {
+    transform: scale(1.15);
+    filter: contrast(1.15) saturate(1.3) brightness(1.1);
+}
+
+/* Add a glow effect */
+.hero-image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 40% 60% 50% 50% / 40% 40% 60% 60%;
+    background: var(--gradient-4);
+    filter: blur(50px);
+    opacity: 0;
+    z-index: -2;
+    transition: opacity 0.5s ease;
+}
+
+.hero-image-container:hover::after {
+    opacity: 0.4;
+}
+
+/* Dark mode adjustments */
+.dark .hero-image-container .rounded-full {
+    box-shadow: 
+        0 10px 25px rgba(0, 0, 0, 0.4),
+        0 0 0 10px rgba(29, 26, 53, 0.5);
+}
+
+/* Profile image shape animation */
+@keyframes morphing {
+    0% {
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+    25% {
+        border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+    }
+    50% {
+        border-radius: 30% 70% 50% 50% / 40% 30% 70% 60%;
+    }
+    75% {
+        border-radius: 50% 50% 40% 60% / 30% 40% 60% 70%;
+    }
+    100% {
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+}
+
+/* Rotating gradient animation */
+@keyframes rotate {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Image hover effects */
+.hero-image-container img {
+    transition: all 0.7s ease;
+    transform: scale(1);
+    filter: saturate(1.05) contrast(1.05);
+}
+
+.hero-image-container:hover img {
+    transform: scale(1.1) rotate(2deg);
+    filter: saturate(1.2) contrast(1.1) brightness(1.05);
+}
+
+/* Glowing effect on hover */
+.hero-image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    box-shadow: 
+        0 0 25px rgba(79, 70, 229, 0.4),
+        0 0 50px rgba(139, 92, 246, 0.2),
+        0 0 75px rgba(236, 72, 153, 0.1);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+}
+
+.hero-image-container:hover::after {
+    opacity: 0.8;
+}
+
+/* Dark mode improvements for cards */
+.dark .skill-card,
+.dark .project-card:hover .content,
+.dark .about-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.dark .social-icon {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+/* Button Styles with 3D effects */
+.btn-primary {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color);
+    color: white !important;
+    font-weight: 600;
+    border-radius: 0.375rem;
+    box-shadow: 0 4px 6px rgba(67, 97, 238, 0.25), 0 5px 0 var(--primary-dark);
+    transition: var(--transition);
+    transform: translateZ(0);
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(67, 97, 238, 0.3), 0 7px 0 var(--primary-dark);
+}
+
+.btn-primary:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 3px rgba(67, 97, 238, 0.3), 0 2px 0 var(--primary-dark);
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: white;
+    color: var(--primary-color) !important;
+    font-weight: 600;
+    border-radius: 0.375rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure button is visible in dark mode */
+.dark .btn-secondary {
+    background-color: transparent;
+    color: var(--primary-light) !important;
+    border: 2px solid var(--primary-light);
+}
+
+.dark .btn-secondary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white !important;
+}
+
+/* Rainbow Button for eye-catching elements */
+.btn-rainbow {
+    background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+    background-size: 1400% 1400%;
+    animation: rainbow 5s ease infinite;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 12px 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+@keyframes rainbow {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.btn-rainbow:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Styles */
+.form-input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    background-color: #f9fafb;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    transform: translateZ(0);
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+}
+
+.dark .form-input {
+    background-color: #1f2937;
+    border-color: #4b5563;
+    color: #e5e7eb !important;
+}
+
+.dark .form-input::placeholder {
+    color: #9ca3af;
+}
+
+.dark label {
+    color: #e5e7eb !important;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(76, 201, 240, 0.25);
+    transform: translateZ(5px);
+}
+
+.form-input::placeholder {
+    color: #9ca3af;
+    opacity: 0.8;
+    font-size: 0.95rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    transform: translateZ(10px);
+}
+
+.form-input:focus + label,
+.form-input:not(:placeholder-shown) + label {
+    color: var(--primary-color);
+    transform: translateZ(15px) translateY(-5px);
+    font-size: 0.875rem;
+}
+
+/* Form Error States */
+.form-input.error {
+    border-color: #ef4444;
+    background-color: #fee2e2;
+}
+
+.dark .form-input.error {
+    border-color: #f87171;
+    background-color: rgba(248, 113, 113, 0.1);
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.375rem;
+    display: block;
+}
+
+.dark .error-message {
+    color: #f87171;
+}
+
+/* Form Success States */
+.form-input.success {
+    border-color: #10b981;
+    background-color: #ecfdf5;
+}
+
+.dark .form-input.success {
+    border-color: #34d399;
+    background-color: rgba(52, 211, 153, 0.1);
+}
+
+/* Form loading indicator */
+.btn-primary.loading {
+    position: relative;
+    background-color: var(--primary-color) !important;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.btn-primary.loading .loading-indicator {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    visibility: visible !important;
+}
+
+.loading-indicator.hidden {
+    display: none;
+}
+
+/* Skill Cards with 3D effect */
+.skill-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    transform-style: preserve-3d;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: var(--gradient-4);
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+    z-index: -1;
+}
+
+.skill-card:hover {
+    transform: translateY(-15px);
+    box-shadow: var(--card-shadow-hover);
+    color: white;
+}
+
+.skill-card:hover::before {
+    top: -50%;
+    left: -50%;
+    opacity: 1;
+}
+
+.skill-card:hover h3 {
+    color: white !important;
+}
+
+.dark .skill-card {
+    background-color: var(--dark-card);
+}
+
+.skill-card i {
+    transform: translateZ(20px);
+    display: inline-block;
+}
+
+.skill-card h3 {
+    transform: translateZ(15px);
+}
+
+.skill-card .progress-bar {
+    transform: translateZ(10px);
+}
+
+/* Project Cards with 3D effect - Fixed styling */
+.project-card {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    position: relative;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--gradient-4);
+    z-index: -1;
+    border-radius: 17px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-15px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+/* Restore project image transition effects */
+.project-card img {
+    transition: transform 0.7s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.1) translateZ(5px);
+}
+
+.project-card .content {
+    transform: translateZ(20px);
+}
+
+/* Improved dark mode project card styles */
+.dark .project-card .content {
+    color: white;
+}
+
+.dark .project-card .text-white {
+    color: #ffffff !important;
+}
+
+.dark .project-card .text-gray-300 {
+    color: #d1d5db !important;
+}
+
+.dark .project-card p.text-gray-700,
+.dark .project-card p.text-gray-300 {
+    color: #e2e8f0 !important;
+}
+
+.dark .project-card h3 {
+    color: #ffffff !important;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+/* Fix project card background in dark mode */
+.dark .project-card .p-6.bg-gradient-to-br {
+    background: var(--dark-card) !important;
+    background-image: none !important;
+}
+
+/* Fixed specific project card gradient backgrounds in dark mode */
+.dark .from-indigo-50.to-slate-50,
+.dark .from-purple-50.to-pink-50,
+.dark .from-emerald-50.to-teal-50 {
+    background: var(--dark-card) !important;
+    background-image: none !important;
+}
+
+/* Improve project card link visibility in dark mode */
+.dark .project-card a.text-indigo-600,
+.dark .project-card a.text-blue-600,
+.dark .project-card .text-indigo-400,
+.dark .project-card .text-blue-400 {
+    color: #a5b4fc !important;
+    font-weight: 500;
+    text-shadow: 0 0 2px rgba(165, 180, 252, 0.3);
+}
+
+.dark .project-card a:hover {
+    color: #c7d2fe !important;
+    text-shadow: 0 0 4px rgba(199, 210, 254, 0.5);
+}
+
+/* Project card tag colors in dark mode */
+.dark .project-card .px-3.py-1.text-white {
+    color: #ffffff !important;
+}
+
+/* Social Icons with improved 3D effect */
+.social-icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    transform: none !important;
+    perspective: none !important;
+    transform-style: flat !important;
+    z-index: 1;
+}
+
+.social-icon:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-3px) !important;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Make the entire icon area clickable */
+.social-icon i {
+    position: static;
+    z-index: 2;
+    transform: none !important;
+    display: block;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+/* Make sure the link encompasses the whole icon */
+.social-icon-link {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+}
+
+/* Fix for social icons in dark mode */
+.dark .social-icon {
+    background: var(--primary-color);
+}
+
+.dark .social-icon:hover {
+    background: var(--primary-dark);
+}
+
+/* Make social icons more recognizable as clickable elements */
+.social-icon::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.social-icon:hover::after {
+    opacity: 1;
+}
+
+/* Reduce rotation effect on social icons for better usability */
+.social-icon:hover {
+    transform: translateY(-3px);
+}
+
+/* About section 3D cards */
+.about-card {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 15px;
+    transition: var(--transition);
+}
+
+.about-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--gradient-4);
+    z-index: -1;
+    opacity: 0;
+    transition: all 0.3s ease;
+    border-radius: 17px;
+}
+
+.about-card:hover::before {
+    opacity: 1;
+}
+
+.about-card:hover {
+    transform: translateY(-10px);
+    color: white !important;
+}
+
+.about-card:hover h3 {
+    color: white !important;
+}
+
+.about-card:hover p {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.dark .about-card {
+    background-color: var(--dark-card);
+}
+
+/* Footer 3D effect */
+footer {
+    position: relative;
+    transform-style: preserve-3d;
+    z-index: 1;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+    transform: translateZ(-1px);
+    z-index: -1;
+}
+
+/* Animation Delays */
+[data-aos-delay="100"] { transition-delay: 100ms; }
+[data-aos-delay="200"] { transition-delay: 200ms; }
+[data-aos-delay="300"] { transition-delay: 300ms; }
+[data-aos-delay="400"] { transition-delay: 400ms; }
+[data-aos-delay="500"] { transition-delay: 500ms; }
+[data-aos-delay="600"] { transition-delay: 600ms; }
+[data-aos-delay="700"] { transition-delay: 700ms; }
+[data-aos-delay="800"] { transition-delay: 800ms; }
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+/* Custom AOS Animation */
+[data-aos="custom-fade-up"] {
+    opacity: 0;
+    transform: translateY(50px) translateZ(0);
+    transition-property: transform, opacity;
+}
+
+[data-aos="custom-fade-up"].aos-animate {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+}
+
+/* 3D Rotation animation */
+@keyframes rotateY {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+.rotate-y {
+    animation: rotateY 10s linear infinite;
+    transform-style: preserve-3d;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #374151;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c0c0c0;
+    border-radius: 5px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #4b5563;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a0a0a0;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+}
+
+/* Dark Mode Specific Styles */
+.dark .bg-white {
+    background-color: #1f2937;
+}
+
+/* 3D Background Effect */
+.particles-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: var(--primary-light);
+    opacity: 0.3;
+    animation: float-particle var(--duration) ease-in-out infinite;
+    transform: translate3d(0, 0, 0);
+}
+
+.dark .particle {
+    background-color: var(--primary-color);
+    opacity: 0.15;
+}
+
+@keyframes float-particle {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+    25% {
+        transform: translateY(-20px) translateX(10px);
+    }
+    50% {
+        transform: translateY(-10px) translateX(-10px);
+    }
+    75% {
+        transform: translateY(10px) translateX(5px);
+    }
+}
+
+/* Additional Animation Classes */
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .7;
+    }
+}
+
+.animate-bounce {
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(-5%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+/* Make sure button text is visible in dark mode */
+.dark .btn-primary {
+    color: white !important;
+}
+
+.dark .btn-secondary {
+    color: #a5b4fc !important; /* If not hovering */
+}
+
+.dark .btn-secondary:hover {
+    color: white !important; /* When hovering */
+}
+
+/* Ensure other text elements are visible in dark mode */
+.dark .text-gray-700 {
+    color: #e5e7eb !important;
+}
+
+/* Ensure navbar links are visible in dark mode */
+.dark nav a {
+    color: #e5e7eb;
+}
+
+.dark nav a:hover {
+    color: #a5b4fc !important;
+}
+
+/* Fix text color in cards */
+.dark .project-card .content p {
+    color: #e5e7eb !important;
+}
+
+/* Fix button text in dark mode */
+.dark button span {
+    color: white !important;
+}
+
+/* Fix all button text in dark mode */
+.dark button,
+.dark .btn-primary,
+.dark .btn-secondary,
+.dark .btn-rainbow {
+    color: white !important;
+}
+
+.dark button span,
+.dark .btn-primary span,
+.dark .btn-secondary span,
+.dark .btn-rainbow span {
+    color: white !important;
+}
+
+.dark .button-text {
+    color: white !important;
+}
+
+/* Ensure section titles are visible */
+.dark h2.section-title {
+    opacity: 1 !important;
+    color: white !important;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Project card text improvements for dark mode */
+.dark .project-card .p-6 {
+    color: #e2e8f0 !important;
+}
+
+/* Ensure all text elements in dark project cards are visible */
+.dark .project-card .p-6 p,
+.dark .project-card .p-6 span,
+.dark .project-card .p-6 a {
+    color: #e2e8f0 !important;
+}
+
+.dark .project-card .p-6 a {
+    color: #93c5fd !important;
+}
+
+.dark .project-card .p-6 a:hover {
+    color: #bfdbfe !important;
+    text-decoration: underline;
+}
+
+/* Make Progress Bars Colorful */
+.progress-bar div {
+    background: var(--gradient-4) !important;
+    transition: width 1.5s ease-in-out !important;
+}
+
+/* Colorful Form Animations */
+@keyframes slideInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutDown {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+}
+
+@keyframes shakeX {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Colorful form inputs */
+.form-input {
+    border: 2px solid transparent;
+    background-image: linear-gradient(white, white), 
+                      var(--gradient-4);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    transition: all 0.3s ease;
+}
+
+.dark .form-input {
+    background-image: linear-gradient(var(--dark-card), var(--dark-card)), 
+                      var(--gradient-3);
+}
+
+.form-input:focus {
+    box-shadow: 0 0 0 3px rgba(76, 201, 240, 0.25);
+    transform: translateY(-3px);
+}
+
+/* Colorful success/error messages */
+#form-success, #form-error {
+    position: relative;
+    overflow: hidden;
+}
+
+#form-success::before, #form-error::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+                               rgba(255,255,255,0) 0%, 
+                               rgba(255,255,255,0.2) 50%, 
+                               rgba(255,255,255,0) 100%);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    to {
+        left: 100%;
+    }
+}
+
+/* Colorful submit button animation */
+.form-submit-btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.form-submit-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-2);
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.form-submit-btn:hover::after {
+    opacity: 1;
+} 
